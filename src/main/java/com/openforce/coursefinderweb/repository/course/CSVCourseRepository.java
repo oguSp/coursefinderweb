@@ -1,7 +1,7 @@
 package com.openforce.coursefinderweb.repository.course;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.Reader;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -14,6 +14,8 @@ import java.util.Locale;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 import com.openforce.coursefinderweb.domain.Course;
 import com.openforce.coursefinderweb.domain.CourseYear;
@@ -27,8 +29,9 @@ public class CSVCourseRepository implements ICourseRepository {
 
     private Reader input;
 
-    public CSVCourseRepository(String filePath) throws FileNotFoundException {
-            this.input = new FileReader(filePath);
+    public CSVCourseRepository(String filePath) throws IOException {
+        Resource resource = new ClassPathResource(filePath);
+        this.input = new FileReader(resource.getFile());
     }
 
     @Override

@@ -2,6 +2,9 @@ package com.openforce.coursefinderweb.domain;
 
 import java.util.Date;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class CourseYear {
     
     private int year;

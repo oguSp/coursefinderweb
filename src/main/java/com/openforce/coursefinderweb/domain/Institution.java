@@ -1,6 +1,8 @@
 package com.openforce.coursefinderweb.domain;
 
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 public class Institution {
     
     private String name;
